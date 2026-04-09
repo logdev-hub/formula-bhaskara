@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhaskara na Armazenagem - Desafio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body{
+      background: linear-gradient(180deg,#f5f9ff 0%, #eef5fb 100%);
+      font-family: Arial, Helvetica, sans-serif;
+      color:#1f2d3d;
+    }
+    .hero{
+      background: linear-gradient(135deg,#0d6efd,#4dabf7);
+      color:#fff;
+      border-radius:24px;
+      padding:32px;
+      box-shadow:0 12px 30px rgba(13,110,253,.18);
+    }
+    .card-aula{
+      background:#fff;
+      border:none;
+      border-radius:22px;
+      box-shadow:0 8px 24px rgba(20,40,80,.08);
+    }
+    .badge-aula{
+      display:inline-block;
+      background:#e8f1ff;
+      color:#0d4ea6;
+      padding:7px 14px;
+      border-radius:999px;
+      font-weight:700;
+      margin:4px 6px 0 0;
+      font-size:.9rem;
+    }
+    .caixa-info{
+      background:#eef6ff;
+      border-left:6px solid #0d6efd;
+      border-radius:14px;
+      padding:14px;
+    }
+    .caixa-alerta{
+      background:#fff8e6;
+      border-left:6px solid #ffc107;
+      border-radius:14px;
+      padding:14px;
+    }
+    .formula{
+      background:#f8f9fa;
+      border:1px dashed #9cb8e8;
+      border-radius:14px;
+      padding:12px;
+      font-weight:700;
+    }
+    h1,h2,h3{
+      color:#133b75;
+    }
+    .area-resposta{
+      min-height:140px;
+      border:2px dashed #b7cff5;
+      border-radius:16px;
+      background:#fbfdff;
+      padding:16px;
+    }
+    .hint{
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4 py-lg-5">
+
+    <section class="hero mb-4">
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
+        <div>
+          <h1 class="display-6 fw-bold mb-3">🧩 Desafio — Bhaskara na Armazenagem</h1>
+          <p class="lead mb-2">
+            Agora é sua vez de aplicar o mesmo raciocínio em um novo problema logístico.
+          </p>
+          <div>
+            <span class="badge-aula">📦 Contexto de estoque</span>
+            <span class="badge-aula">🧮 Equação do 2º grau</span>
+            <span class="badge-aula">✍️ Resolver passo a passo</span>
+          </div>
+        </div>
+        <div class="bg-white text-primary rounded-4 p-3 p-lg-4 shadow-sm text-center">
+          <div class="fw-bold fs-5">Missão</div>
+          <div>Montar a equação</div>
+          <div>achar as raízes</div>
+          <div>e interpretar</div>
+          <div>o espaço físico</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card-aula p-4 mb-4">
+      <h2 class="fw-bold mb-3">📖 Situação-problema</h2>
+      <p>
+        Uma empresa decidiu criar uma <strong>área de quarentena</strong> para produtos com avarias leves,
+        devoluções e materiais aguardando análise.
+      </p>
+      <p>
+        Essa área terá formato <strong>retangular</strong> e seguirá as seguintes condições:
+      </p>
+
+      <div class="caixa-info">
+        • a <strong>largura</strong> será representada por x<br>
+        • o <strong>comprimento</strong> será 6 metros maior que a largura<br>
+        • a área total necessária será de <strong>135 m²</strong>
+      </div>
+
+      <p class="mt-3 mb-0">
+        <strong>Desafio:</strong> determine quais devem ser as dimensões dessa área.
+      </p>
+    </section>
+
+    <section class="card-aula p-4 mb-4">
+      <h2 class="fw-bold mb-3">🛠️ O que você precisa fazer</h2>
+      <ol class="mb-0">
+        <li>Definir a variável x.</li>
+        <li>Montar a expressão da área.</li>
+        <li>Transformar o problema em equação do 2º grau.</li>
+        <li>Identificar a, b e c.</li>
+        <li>Calcular o delta.</li>
+        <li>Aplicar Bhaskara.</li>
+        <li>Escolher a raiz que faz sentido no contexto físico.</li>
+      </ol>
+    </section>
+
+    <section class="card-aula p-4 mb-4">
+      <h2 class="fw-bold mb-3">📝 Espaço para resolução</h2>
+
+      <h3 class="fs-5 fw-bold">1) Monte a equação</h3>
+      <div class="area-resposta mb-3"></div>
+
+      <h3 class="fs-5 fw-bold">2) Identifique os coeficientes</h3>
+      <div class="area-resposta mb-3"></div>
+
+      <h3 class="fs-5 fw-bold">3) Calcule o delta</h3>
+      <div class="area-resposta mb-3"></div>
+
+      <h3 class="fs-5 fw-bold">4) Aplique Bhaskara e interprete</h3>
+      <div class="area-resposta"></div>
+    </section>
+
+    <section class="card-aula p-4 mb-4">
+      <h2 class="fw-bold mb-3">💡 Pistas</h2>
+
+      <button class="btn btn-primary mb-3" onclick="mostrarDica()">Mostrar pista</button>
+
+      <div id="dica1" class="hint">
+        <div class="caixa-alerta mb-3">
+          <strong>Pista 1:</strong> a área do retângulo pode ser escrita como:
+          <div class="formula mt-2">x × (x + 6) = 135</div>
+        </div>
+
+        <div class="caixa-alerta">
+          <strong>Pista 2:</strong> depois disso, leve tudo para o formato:
+          <div class="formula mt-2">ax² + bx + c = 0</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card-aula p-4">
+      <h2 class="fw-bold mb-3">🎯 Objetivo pedagógico</h2>
+      <p>
+        Este desafio ajuda a perceber que a fórmula de Bhaskara não aparece apenas em exercícios abstratos.
+        Ela pode ser usada em decisões de layout, espaço e dimensionamento dentro da logística.
+      </p>
+      <div class="caixa-info">
+        Depois de resolver, confira se as medidas encontradas realmente geram 135 m².
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function mostrarDica() {
+      const dica = document.getElementById("dica1");
+      dica.style.display = "block";
+    }
+  </script>
+</body>
+</html>
